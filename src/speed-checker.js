@@ -3,12 +3,19 @@ const fs = require('fs');
 const minimist = require('minimist');
 const mkdirp = require('mkdirp');
 
+//https://www.speedcheck.org
+// click the document.querySelector('.start-button').click()
+// take screenshot of .result-container
+
+// https://www.speedtest.net
+// click the .js-start-test test-mode-multi anchor button
+
 const argumentsOutput = `
-  Usage: node speed-checker.js --speedSite <url>
+  Usage: node speed-checker.js --speedSite <speedtest | speedcheck | fast>
   
   Arguments:
   
-  speedSite <url>  (url of the sitespeed you want to take a screenshot of (fast.com, speedtest.net, etc))
+  speedSite <siteType>  (speedtest.net or speedcheck.org or fast.com)
 `;
 
 const visitWebsite = async (speedSite) => {
@@ -21,6 +28,7 @@ const visitWebsite = async (speedSite) => {
         await page.goto(speedSite, { waitUntil: 'domcontentloaded' });
         console.log('loading completed....');
 
+        // Assumes fast.com
         const resultsSelector = '#speed-progress-indicator.succeeded';
         await page.waitForSelector(resultsSelector);
         console.log('Has succeeded');
@@ -30,11 +38,6 @@ const visitWebsite = async (speedSite) => {
         await page.screenshot({ path: `../screenshots/${fileTStamp}.png`, fullPage: true });
         console.log('Screenshot taken');
         await browser.close();
-
-
-
-
-
 
         console.log('check completed');
 
