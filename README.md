@@ -7,4 +7,4 @@ Check the Ethernet speed every hour and take a screenshot
 
 
 ## Running
-node speed-checker.js --speedSite https://fast.com
+`node speed-checker.js --speedSite https://fast.com`
