@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/magz99/internet-speed-checker#readme",
   "dependencies": {
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "mkdirp": "^1.0.4",
     "puppeteer": "^7.0.1"
   }
